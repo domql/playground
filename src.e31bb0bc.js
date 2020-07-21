@@ -1535,16 +1535,14 @@ exports.default = void 0;
 
 var _utils = require("../../utils");
 
-var _report = _interopRequireDefault(require("../../utils/report"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _report = require("../../utils/report");
 
 /**
  * Recursively add styles to a DOM node
  */
 var _default = function _default(params, element, node) {
   if (params) {
-    if ((0, _utils.isObject)(params)) (0, _utils.map)(node.style, params, element);else (0, _report.default)('HTMLInvalidStyles', params);
+    if ((0, _utils.isObject)(params)) (0, _utils.map)(node.style, params, element);else (0, _report.report)('HTMLInvalidStyles', params);
   }
 };
 
@@ -2262,7 +2260,982 @@ var _default = {
   tree: _element.tree
 };
 exports.default = _default;
-},{"regenerator-runtime/runtime":"../node_modules/@rackai/domql/node_modules/regenerator-runtime/runtime.js","./element":"../node_modules/@rackai/domql/src/element/index.js"}],"../node_modules/@emotion/sheet/dist/sheet.browser.esm.js":[function(require,module,exports) {
+},{"regenerator-runtime/runtime":"../node_modules/@rackai/domql/node_modules/regenerator-runtime/runtime.js","./element":"../node_modules/@rackai/domql/src/element/index.js"}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/sequence.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  'minor-second': 1.067,
+  'major-second': 1.125,
+  'minor-third': 1.2,
+  'major-third': 1.25,
+  'perfect-fourth': 1.333,
+  'augmented-fourth': 1.414,
+  'perfect-fifth': 1.5,
+  'phi': 1.618,
+  // golden-ratio
+  'square-root-3': 1.73205,
+  // theodorus
+  'square-root-5': 2.23,
+  // pythagoras
+  'pi': 3.14 // archimedes
+
+};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/color.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var black = '#000000';
+var blue = '#5081BB';
+var green = '#4C904B';
+var cyan = '#63B7A4';
+var yellow = '#DAB648';
+var orange = '#C37234';
+var purple = '#7938B2';
+var red = '#D13B3B';
+var peach = '#EF604E';
+var pink = '#9A36AF';
+var white = '#FFFFFF';
+var colors = {
+  black,
+  blue,
+  green,
+  cyan,
+  yellow,
+  orange,
+  purple,
+  red,
+  peach,
+  pink,
+  white
+};
+var _default = {};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/theme.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var themeA = {
+  text: 'blue',
+  background: 'white',
+  border: 'black',
+  // .opacity(0.2),
+  helpers: [],
+  inverse: {} // schemeAInverse
+
+};
+var _default = {};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/box.js":[function(require,module,exports) {
+
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/size.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _sequence = _interopRequireDefault(require("./sequence"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  base: 16,
+  ratio: _sequence.default['phi']
+};
+exports.default = _default;
+},{"./sequence":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/sequence.js"}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/typography.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/unit.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = 'px';
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Sequence", {
+  enumerable: true,
+  get: function () {
+    return _sequence.default;
+  }
+});
+Object.defineProperty(exports, "Color", {
+  enumerable: true,
+  get: function () {
+    return _color.default;
+  }
+});
+Object.defineProperty(exports, "Theme", {
+  enumerable: true,
+  get: function () {
+    return _theme.default;
+  }
+});
+Object.defineProperty(exports, "Box", {
+  enumerable: true,
+  get: function () {
+    return _box.default;
+  }
+});
+Object.defineProperty(exports, "Size", {
+  enumerable: true,
+  get: function () {
+    return _size.default;
+  }
+});
+Object.defineProperty(exports, "Typography", {
+  enumerable: true,
+  get: function () {
+    return _typography.default;
+  }
+});
+Object.defineProperty(exports, "Unit", {
+  enumerable: true,
+  get: function () {
+    return _unit.default;
+  }
+});
+
+var _sequence = _interopRequireDefault(require("./sequence"));
+
+var _color = _interopRequireDefault(require("./color"));
+
+var _theme = _interopRequireDefault(require("./theme"));
+
+var _box = _interopRequireDefault(require("./box"));
+
+var _size = _interopRequireDefault(require("./size"));
+
+var _typography = _interopRequireDefault(require("./typography"));
+
+var _unit = _interopRequireDefault(require("./unit"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./sequence":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/sequence.js","./color":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/color.js","./theme":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/theme.js","./box":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/box.js","./size":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/size.js","./typography":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/typography.js","./unit":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/unit.js"}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/utils/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getFontFace = exports.setCustomFont = exports.getFontFormat = exports.opacify = exports.mixTwoRGBA = exports.mixTwoRGB = exports.hexToRGBA = exports.hexToRGB = exports.mixTwoColors = exports.colorStringToRGBAArray = exports.merge = void 0;
+
+const merge = (obj, original) => {
+  for (const e in original) {
+    const objProp = obj[e];
+    const originalProp = original[e];
+
+    if (objProp === undefined) {
+      obj[e] = originalProp;
+    }
+  }
+
+  return obj;
+};
+
+exports.merge = merge;
+
+const colorStringToRGBAArray = color => {
+  if (color === '') return;
+  if (color.toLowerCase() === 'transparent') return [0, 0, 0, 0]; // convert #RGB and #RGBA to #RRGGBB and #RRGGBBAA
+
+  if (color[0] === '#') {
+    if (color.length < 7) {
+      color = '#' + color[1] + color[1] + color[2] + color[2] + color[3] + color[3] + (color.length > 4 ? color[4] + color[4] : '');
+    }
+
+    return [parseInt(color.substr(1, 2), 16), parseInt(color.substr(3, 2), 16), parseInt(color.substr(5, 2), 16), color.length > 7 ? parseInt(color.substr(7, 2), 16) / 255 : 1];
+  } // convert named colors
+
+
+  if (color.indexOf('rgb') === -1) {
+    // intentionally use unknown tag to lower chances of css rule override with !important
+    var elem = document.body.appendChild(document.createElement('fictum')); // this flag tested on chrome 59, ff 53, ie9, ie10, ie11, edge 14
+
+    var flag = 'rgb(1, 2, 3)';
+    elem.style.color = flag; // color set failed - some monstrous css rule is probably taking over the color of our object
+
+    if (elem.style.color !== flag) return;
+    elem.style.color = color;
+    if (elem.style.color === flag || elem.style.color === '') return; // color parse failed
+
+    color = window.getComputedStyle(elem).color;
+    document.body.removeChild(elem);
+  } // convert 'rgb(R,G,B)' to 'rgb(R,G,B)A' which looks awful but will pass the regxep below
+
+
+  if (color.indexOf('rgb') === 0) {
+    if (color.indexOf('rgba') === -1) color = `${color}, 1`;
+    return color.match(/[\.\d]+/g).map(a => +a); // eslint-disable-line
+  }
+};
+
+exports.colorStringToRGBAArray = colorStringToRGBAArray;
+
+const mixTwoColors = (colorA, colorB, range = 0.5) => {
+  colorA = colorStringToRGBAArray(colorA);
+  colorB = colorStringToRGBAArray(colorB);
+  return mixTwoRGBA(colorA, colorB, range);
+};
+
+exports.mixTwoColors = mixTwoColors;
+
+const hexToRGB = (hex, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
+  return `rgb(${r},${g},${b})`;
+};
+
+exports.hexToRGB = hexToRGB;
+
+const hexToRGBA = (hex, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
+  return `rgba(${r},${g},${b},${alpha})`;
+};
+
+exports.hexToRGBA = hexToRGBA;
+
+const mixTwoRGB = (colorA, colorB, range = 0.5) => {
+  let arr = [];
+
+  for (let i = 0; i < 3; i++) {
+    arr[i] = Math.round(colorA[i] + (colorB[i] - colorA[i]) * range);
+  }
+
+  return `rgb(${arr})`;
+};
+
+exports.mixTwoRGB = mixTwoRGB;
+
+const mixTwoRGBA = (colorA, colorB, range = 0.5) => {
+  let arr = [];
+
+  for (let i = 0; i < 4; i++) {
+    let round = i === 3 ? x => x : Math.round;
+    arr[i] = round(colorA[i] + (colorB[i] - colorA[i]) * range);
+  }
+
+  return `rgba(${arr})`;
+};
+
+exports.mixTwoRGBA = mixTwoRGBA;
+
+const opacify = (color, opacity) => {
+  let arr = colorStringToRGBAArray(color);
+  arr[3] = opacity;
+  return `rgba(${arr})`;
+};
+
+exports.opacify = opacify;
+
+const getFontFormat = url => url.split(/[#?]/)[0].split('.').pop().trim();
+
+exports.getFontFormat = getFontFormat;
+
+const setCustomFont = (name, weight, url) => `@font-face {
+  font-family: '${name}';
+  font-style: normal;
+  font-weight: ${weight};
+  src: url('${url}') format('${getFontFormat(url)}');
+}`;
+
+exports.setCustomFont = setCustomFont;
+
+const getFontFace = Library => {
+  var fonts = '';
+
+  for (var name in Library) {
+    var font = Library[name];
+
+    for (var weight in font) {
+      var url = font[weight];
+      fonts += `\n${setCustomFont(name, weight, url)}`;
+    }
+  }
+
+  return fonts;
+};
+
+exports.getFontFace = getFontFace;
+},{}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/methods/set.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _config = require("../config");
+
+var _utils = require("../utils");
+
+var set = (kind, ...props) => {
+  if (kind === 'color') {
+    var Colors = props[0];
+
+    for (let c in Colors) {
+      _config.Color[c] = Colors[c];
+    }
+
+    return Colors;
+  } else if (kind === 'theme') {
+    props.map(value => {
+      var {
+        name
+      } = value;
+      _config.Theme[name] = value;
+    });
+    return _config.Theme;
+  } else if (kind === 'typography') {
+    props.map(value => {
+      var {
+        name
+      } = value;
+      delete value.name;
+      _config.Typography[name] = value;
+    });
+    return (0, _utils.getFontFace)(_config.Typography);
+  }
+};
+
+var _default = set;
+exports.default = _default;
+},{"../config":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/index.js","../utils":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/utils/index.js"}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/methods/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "set", {
+  enumerable: true,
+  get: function () {
+    return _set.default;
+  }
+});
+
+var _set = _interopRequireDefault(require("./set"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./set":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/methods/set.js"}],"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "set", {
+  enumerable: true,
+  get: function () {
+    return _methods.set;
+  }
+});
+Object.defineProperty(exports, "Sequence", {
+  enumerable: true,
+  get: function () {
+    return _config.Sequence;
+  }
+});
+Object.defineProperty(exports, "Color", {
+  enumerable: true,
+  get: function () {
+    return _config.Color;
+  }
+});
+Object.defineProperty(exports, "Theme", {
+  enumerable: true,
+  get: function () {
+    return _config.Theme;
+  }
+});
+Object.defineProperty(exports, "Box", {
+  enumerable: true,
+  get: function () {
+    return _config.Box;
+  }
+});
+Object.defineProperty(exports, "Size", {
+  enumerable: true,
+  get: function () {
+    return _config.Size;
+  }
+});
+Object.defineProperty(exports, "Typography", {
+  enumerable: true,
+  get: function () {
+    return _config.Typography;
+  }
+});
+Object.defineProperty(exports, "Unit", {
+  enumerable: true,
+  get: function () {
+    return _config.Unit;
+  }
+});
+Object.defineProperty(exports, "colorStringToRGBAArray", {
+  enumerable: true,
+  get: function () {
+    return _utils.colorStringToRGBAArray;
+  }
+});
+Object.defineProperty(exports, "opacify", {
+  enumerable: true,
+  get: function () {
+    return _utils.opacify;
+  }
+});
+Object.defineProperty(exports, "mixTwoColors", {
+  enumerable: true,
+  get: function () {
+    return _utils.mixTwoColors;
+  }
+});
+Object.defineProperty(exports, "hexToRGB", {
+  enumerable: true,
+  get: function () {
+    return _utils.hexToRGB;
+  }
+});
+Object.defineProperty(exports, "hexToRGBA", {
+  enumerable: true,
+  get: function () {
+    return _utils.hexToRGBA;
+  }
+});
+Object.defineProperty(exports, "mixTwoRGB", {
+  enumerable: true,
+  get: function () {
+    return _utils.mixTwoRGB;
+  }
+});
+Object.defineProperty(exports, "mixTwoRGBA", {
+  enumerable: true,
+  get: function () {
+    return _utils.mixTwoRGBA;
+  }
+});
+Object.defineProperty(exports, "getFontFormat", {
+  enumerable: true,
+  get: function () {
+    return _utils.getFontFormat;
+  }
+});
+Object.defineProperty(exports, "setCustomFont", {
+  enumerable: true,
+  get: function () {
+    return _utils.setCustomFont;
+  }
+});
+Object.defineProperty(exports, "getFontFace", {
+  enumerable: true,
+  get: function () {
+    return _utils.getFontFace;
+  }
+});
+
+var _methods = require("./methods");
+
+var _config = require("./config");
+
+var _utils = require("./utils");
+},{"./methods":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/methods/index.js","./config":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/config/index.js","./utils":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/utils/index.js"}],"../node_modules/@rackai/symbols/src/Shape/style.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.size = exports.depth = exports.round = exports.shape = exports.style = void 0;
+
+var _scratch = require("@rackai/scratch");
+
+var style = {
+  border: `1px solid transparent`,
+  boxSizing: 'border-box'
+};
+exports.style = style;
+var round = {
+  0: {
+    borderRadius: 0
+  },
+  4: {
+    borderRadius: 4
+  },
+  6: {
+    borderRadius: 6
+  },
+  10: {
+    borderRadius: 10
+  },
+  16: {
+    borderRadius: 16
+  },
+  26: {
+    borderRadius: 26
+  },
+  42: {
+    borderRadius: 42
+  }
+};
+exports.round = round;
+var depth = {
+  4: {
+    boxShadow: `rgba(0,0,0,.10) 0 2${_scratch.Unit} 4${_scratch.Unit}`
+  },
+  6: {
+    boxShadow: `rgba(0,0,0,.10) 0 3${_scratch.Unit} 6${_scratch.Unit}`
+  },
+  10: {
+    boxShadow: `rgba(0,0,0,.10) 0 4${_scratch.Unit} 10${_scratch.Unit}`
+  },
+  16: {
+    boxShadow: `rgba(0,0,0,.10) 0 8${_scratch.Unit} 16${_scratch.Unit}`
+  },
+  26: {
+    boxShadow: `rgba(0,0,0,.10) 0 14${_scratch.Unit} 26${_scratch.Unit}`
+  },
+  42: {
+    boxShadow: `rgba(0,0,0,.10) 0 20${_scratch.Unit} 42${_scratch.Unit}`
+  }
+};
+exports.depth = depth;
+var shape = {
+  rectangle: {},
+  circle: {
+    borderRadius: '100%'
+  },
+  bubble: {},
+  tooltip: {}
+};
+exports.shape = shape;
+var size = {
+  default: {
+    height: `${Math.pow(_scratch.Size.ratio, 2)}em`,
+    padding: `0 ${_scratch.Size.ratio}em`,
+    fontSize: `${_scratch.Size.base}${_scratch.Unit}`,
+    lineHeight: `${_scratch.Size.base}${_scratch.Unit}`
+  }
+};
+exports.size = size;
+},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js"}],"../node_modules/@rackai/symbols/src/Shape/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _scratch = require("@rackai/scratch");
+
+var _style = require("./style");
+
+var Shape = {
+  style: _style.style,
+  class: {
+    shape: element => _style.shape[element.shape],
+    depth: element => _style.depth[element.depth],
+    round: element => _style.round[element.round],
+    size: element => _style.size[element.size],
+    theme: element => _scratch.Theme[element.theme]
+  },
+  define: {
+    shape: param => param || 'rectangle',
+    depth: param => param !== undefined ? param : 10,
+    round: param => param !== undefined ? param : 6,
+    size: param => param || 'default',
+    theme: param => param || Object.keys(_scratch.Theme)[0] || ''
+  } // mode: {
+  //   dark: {
+  //     theme: 'white'
+  //   }
+  // }
+  // theme: {
+  //   default: 'primary',
+  //   dark: 'whiteish'
+  // }
+  // size: {
+  //   default: 'auto',
+  //   mobile: 'fit'
+  // }
+  // spacing: {
+  //   default: ratio.phi,
+  //   mobile: ratio.perfect
+  // }
+
+};
+var _default = Shape;
+exports.default = _default;
+},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js","./style":"../node_modules/@rackai/symbols/src/Shape/style.js"}],"../node_modules/@rackai/symbols/src/SVG/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var useSVGSymbol = file => `<use xlink:href="${file}" />`; // create icon
+
+
+var _default = {
+  tag: 'svg',
+  define: {
+    file: (param, element) => useSVGSymbol(param)
+  },
+  html: element => element.file || useSVGSymbol(element.key)
+};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/left.svg":[function(require,module,exports) {
+module.exports="/left.71e84d4c.svg";
+},{}],"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/right.svg":[function(require,module,exports) {
+module.exports="/right.2632fccf.svg";
+},{}],"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/up.svg":[function(require,module,exports) {
+module.exports="/up.f7f7f85f.svg";
+},{}],"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/down.svg":[function(require,module,exports) {
+module.exports="/down.df03a0c2.svg";
+},{}],"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/index.js":[function(require,module,exports) {
+'use strict'; // arrows/bold
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _left = _interopRequireDefault(require("./left.svg"));
+
+var _right = _interopRequireDefault(require("./right.svg"));
+
+var _up = _interopRequireDefault(require("./up.svg"));
+
+var _down = _interopRequireDefault(require("./down.svg"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  left: _left.default,
+  right: _right.default,
+  up: _up.default,
+  down: _down.default
+};
+exports.default = _default;
+},{"./left.svg":"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/left.svg","./right.svg":"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/right.svg","./up.svg":"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/up.svg","./down.svg":"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/down.svg"}],"../node_modules/@rackai/symbols/src/Icon/svg/index.js":[function(require,module,exports) {
+'use strict'; // arrows
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _bold = _interopRequireDefault(require("./arrow/bold"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = { ..._bold.default
+};
+exports.default = _default;
+},{"./arrow/bold":"../node_modules/@rackai/symbols/src/Icon/svg/arrow/bold/index.js"}],"../node_modules/@rackai/symbols/src/Icon/style.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  width: '1em',
+  height: '1em',
+  fill: 'currentColor',
+  display: 'inline-block'
+};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/src/Icon/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _svg = _interopRequireDefault(require("./svg"));
+
+var _style = _interopRequireDefault(require("./style"));
+
+var _SVG = _interopRequireDefault(require("../SVG"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  proto: _SVG.default,
+  style: _style.default,
+  define: {
+    name: param => param
+  },
+  file: element => _svg.default[element.name || element.key],
+  attr: {
+    viewBox: '0 0 16 16'
+  }
+};
+exports.default = _default;
+},{"./svg":"../node_modules/@rackai/symbols/src/Icon/svg/index.js","./style":"../node_modules/@rackai/symbols/src/Icon/style.js","../SVG":"../node_modules/@rackai/symbols/src/SVG/index.js"}],"../node_modules/@rackai/symbols/src/IconText/style.js":[function(require,module,exports) {
+'use strict'; // import { Sequence, Size, Unit } from 'scratch'
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  display: 'flex',
+  alignItems: 'center',
+  alignContent: 'center',
+  lineHeight: 1,
+  '> svg': {
+    marginInlineEnd: `${0.35}em`
+  }
+};
+exports.default = _default;
+},{}],"../node_modules/@rackai/symbols/src/IconText/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _style = _interopRequireDefault(require("./style"));
+
+var _ = require("..");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  style: _style.default,
+  define: {
+    icon: param => param || 'left'
+  },
+  _icon: {
+    proto: _.Icon,
+    name: element => element.parent.icon
+  },
+  text: ''
+};
+exports.default = _default;
+},{"./style":"../node_modules/@rackai/symbols/src/IconText/style.js","..":"../node_modules/@rackai/symbols/src/index.js"}],"../node_modules/@rackai/symbols/src/Button/style.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _scratch = require("@rackai/scratch");
+
+var primaryFont = Object.keys(_scratch.Typography)[0];
+var defaultFont = primaryFont || '--system-default';
+var _default = {
+  appearance: 'none',
+  outline: 0,
+  cursor: 'pointer',
+  fontFamily: 'inherit'
+};
+exports.default = _default;
+},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js"}],"../node_modules/@rackai/symbols/src/Button/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _style = _interopRequireDefault(require("./style"));
+
+var _ = require("..");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  proto: _.Shape,
+  tag: 'button',
+  style: _style.default
+};
+exports.default = _default;
+},{"./style":"../node_modules/@rackai/symbols/src/Button/style.js","..":"../node_modules/@rackai/symbols/src/index.js"}],"../node_modules/@rackai/symbols/src/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Sequence", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Sequence;
+  }
+});
+Object.defineProperty(exports, "Color", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Color;
+  }
+});
+Object.defineProperty(exports, "Theme", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Theme;
+  }
+});
+Object.defineProperty(exports, "Box", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Box;
+  }
+});
+Object.defineProperty(exports, "Size", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Size;
+  }
+});
+Object.defineProperty(exports, "Typography", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Typography;
+  }
+});
+Object.defineProperty(exports, "Unit", {
+  enumerable: true,
+  get: function () {
+    return _scratch.Unit;
+  }
+});
+Object.defineProperty(exports, "set", {
+  enumerable: true,
+  get: function () {
+    return _scratch.set;
+  }
+});
+Object.defineProperty(exports, "colorStringToRGBAArray", {
+  enumerable: true,
+  get: function () {
+    return _scratch.colorStringToRGBAArray;
+  }
+});
+Object.defineProperty(exports, "opacify", {
+  enumerable: true,
+  get: function () {
+    return _scratch.opacify;
+  }
+});
+Object.defineProperty(exports, "mixTwoColors", {
+  enumerable: true,
+  get: function () {
+    return _scratch.mixTwoColors;
+  }
+});
+Object.defineProperty(exports, "hexToRGB", {
+  enumerable: true,
+  get: function () {
+    return _scratch.hexToRGB;
+  }
+});
+Object.defineProperty(exports, "hexToRGBA", {
+  enumerable: true,
+  get: function () {
+    return _scratch.hexToRGBA;
+  }
+});
+Object.defineProperty(exports, "mixTwoRGB", {
+  enumerable: true,
+  get: function () {
+    return _scratch.mixTwoRGB;
+  }
+});
+Object.defineProperty(exports, "mixTwoRGBA", {
+  enumerable: true,
+  get: function () {
+    return _scratch.mixTwoRGBA;
+  }
+});
+Object.defineProperty(exports, "getFontFormat", {
+  enumerable: true,
+  get: function () {
+    return _scratch.getFontFormat;
+  }
+});
+Object.defineProperty(exports, "setCustomFont", {
+  enumerable: true,
+  get: function () {
+    return _scratch.setCustomFont;
+  }
+});
+Object.defineProperty(exports, "getFontFace", {
+  enumerable: true,
+  get: function () {
+    return _scratch.getFontFace;
+  }
+});
+Object.defineProperty(exports, "Shape", {
+  enumerable: true,
+  get: function () {
+    return _Shape.default;
+  }
+});
+Object.defineProperty(exports, "SVG", {
+  enumerable: true,
+  get: function () {
+    return _SVG.default;
+  }
+});
+Object.defineProperty(exports, "Icon", {
+  enumerable: true,
+  get: function () {
+    return _Icon.default;
+  }
+});
+Object.defineProperty(exports, "IconText", {
+  enumerable: true,
+  get: function () {
+    return _IconText.default;
+  }
+});
+Object.defineProperty(exports, "Button", {
+  enumerable: true,
+  get: function () {
+    return _Button.default;
+  }
+});
+
+var _scratch = require("@rackai/scratch");
+
+var _Shape = _interopRequireDefault(require("./Shape"));
+
+var _SVG = _interopRequireDefault(require("./SVG"));
+
+var _Icon = _interopRequireDefault(require("./Icon"));
+
+var _IconText = _interopRequireDefault(require("./IconText"));
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js","./Shape":"../node_modules/@rackai/symbols/src/Shape/index.js","./SVG":"../node_modules/@rackai/symbols/src/SVG/index.js","./Icon":"../node_modules/@rackai/symbols/src/Icon/index.js","./IconText":"../node_modules/@rackai/symbols/src/IconText/index.js","./Button":"../node_modules/@rackai/symbols/src/Button/index.js"}],"../node_modules/@emotion/sheet/dist/sheet.browser.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4814,507 +5787,7 @@ CodeFlask.prototype.startEditor = function () {
 };
 var _default = CodeFlask;
 exports.default = _default;
-},{}],"../node_modules/@rackai/scratch/src/config/sequence.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  'minor-second': 1.067,
-  'major-second': 1.125,
-  'minor-third': 1.2,
-  'major-third': 1.25,
-  'perfect-fourth': 1.333,
-  'augmented-fourth': 1.414,
-  'perfect-fifth': 1.5,
-  'phi': 1.618,
-  // golden-ratio
-  'square-root-3': 1.73205,
-  // theodorus
-  'square-root-5': 2.23,
-  // pythagoras
-  'pi': 3.14 // archimedes
-
-};
-exports.default = _default;
-},{}],"../node_modules/@rackai/scratch/src/config/color.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var black = '#000000';
-var blue = '#5081BB';
-var green = '#4C904B';
-var cyan = '#63B7A4';
-var yellow = '#DAB648';
-var orange = '#C37234';
-var purple = '#7938B2';
-var red = '#D13B3B';
-var peach = '#EF604E';
-var pink = '#9A36AF';
-var white = '#FFFFFF';
-var colors = {
-  black,
-  blue,
-  green,
-  cyan,
-  yellow,
-  orange,
-  purple,
-  red,
-  peach,
-  pink,
-  white
-};
-var _default = {};
-exports.default = _default;
-},{}],"../node_modules/@rackai/scratch/src/config/theme.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var themeA = {
-  text: 'blue',
-  background: 'white',
-  border: 'black',
-  // .opacity(0.2),
-  helpers: [],
-  inverse: {} // schemeAInverse
-
-};
-var _default = {};
-exports.default = _default;
-},{}],"../node_modules/@rackai/scratch/src/config/box.js":[function(require,module,exports) {
-
-},{}],"../node_modules/@rackai/scratch/src/config/size.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _sequence = _interopRequireDefault(require("./sequence"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var _default = {
-  base: 16,
-  ratio: _sequence.default['phi']
-};
-exports.default = _default;
-},{"./sequence":"../node_modules/@rackai/scratch/src/config/sequence.js"}],"../node_modules/@rackai/scratch/src/config/typography.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {};
-exports.default = _default;
-},{}],"../node_modules/@rackai/scratch/src/config/unit.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = 'px';
-exports.default = _default;
-},{}],"../node_modules/@rackai/scratch/src/config/index.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "Sequence", {
-  enumerable: true,
-  get: function () {
-    return _sequence.default;
-  }
-});
-Object.defineProperty(exports, "Color", {
-  enumerable: true,
-  get: function () {
-    return _color.default;
-  }
-});
-Object.defineProperty(exports, "Theme", {
-  enumerable: true,
-  get: function () {
-    return _theme.default;
-  }
-});
-Object.defineProperty(exports, "Box", {
-  enumerable: true,
-  get: function () {
-    return _box.default;
-  }
-});
-Object.defineProperty(exports, "Size", {
-  enumerable: true,
-  get: function () {
-    return _size.default;
-  }
-});
-Object.defineProperty(exports, "Typography", {
-  enumerable: true,
-  get: function () {
-    return _typography.default;
-  }
-});
-Object.defineProperty(exports, "Unit", {
-  enumerable: true,
-  get: function () {
-    return _unit.default;
-  }
-});
-
-var _sequence = _interopRequireDefault(require("./sequence"));
-
-var _color = _interopRequireDefault(require("./color"));
-
-var _theme = _interopRequireDefault(require("./theme"));
-
-var _box = _interopRequireDefault(require("./box"));
-
-var _size = _interopRequireDefault(require("./size"));
-
-var _typography = _interopRequireDefault(require("./typography"));
-
-var _unit = _interopRequireDefault(require("./unit"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./sequence":"../node_modules/@rackai/scratch/src/config/sequence.js","./color":"../node_modules/@rackai/scratch/src/config/color.js","./theme":"../node_modules/@rackai/scratch/src/config/theme.js","./box":"../node_modules/@rackai/scratch/src/config/box.js","./size":"../node_modules/@rackai/scratch/src/config/size.js","./typography":"../node_modules/@rackai/scratch/src/config/typography.js","./unit":"../node_modules/@rackai/scratch/src/config/unit.js"}],"../node_modules/@rackai/scratch/src/utils/index.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getFontFace = exports.setCustomFont = exports.getFontFormat = exports.opacify = exports.mixTwoRGBA = exports.mixTwoRGB = exports.hexToRGBA = exports.hexToRGB = exports.mixTwoColors = exports.colorStringToRGBAArray = exports.merge = void 0;
-
-const merge = (obj, original) => {
-  for (const e in original) {
-    const objProp = obj[e];
-    const originalProp = original[e];
-
-    if (objProp === undefined) {
-      obj[e] = originalProp;
-    }
-  }
-
-  return obj;
-};
-
-exports.merge = merge;
-
-const colorStringToRGBAArray = color => {
-  if (color === '') return;
-  if (color.toLowerCase() === 'transparent') return [0, 0, 0, 0]; // convert #RGB and #RGBA to #RRGGBB and #RRGGBBAA
-
-  if (color[0] === '#') {
-    if (color.length < 7) {
-      color = '#' + color[1] + color[1] + color[2] + color[2] + color[3] + color[3] + (color.length > 4 ? color[4] + color[4] : '');
-    }
-
-    return [parseInt(color.substr(1, 2), 16), parseInt(color.substr(3, 2), 16), parseInt(color.substr(5, 2), 16), color.length > 7 ? parseInt(color.substr(7, 2), 16) / 255 : 1];
-  } // convert named colors
-
-
-  if (color.indexOf('rgb') === -1) {
-    // intentionally use unknown tag to lower chances of css rule override with !important
-    var elem = document.body.appendChild(document.createElement('fictum')); // this flag tested on chrome 59, ff 53, ie9, ie10, ie11, edge 14
-
-    var flag = 'rgb(1, 2, 3)';
-    elem.style.color = flag; // color set failed - some monstrous css rule is probably taking over the color of our object
-
-    if (elem.style.color !== flag) return;
-    elem.style.color = color;
-    if (elem.style.color === flag || elem.style.color === '') return; // color parse failed
-
-    color = window.getComputedStyle(elem).color;
-    document.body.removeChild(elem);
-  } // convert 'rgb(R,G,B)' to 'rgb(R,G,B)A' which looks awful but will pass the regxep below
-
-
-  if (color.indexOf('rgb') === 0) {
-    if (color.indexOf('rgba') === -1) color = `${color}, 1`;
-    return color.match(/[\.\d]+/g).map(a => +a); // eslint-disable-line
-  }
-};
-
-exports.colorStringToRGBAArray = colorStringToRGBAArray;
-
-const mixTwoColors = (colorA, colorB, range = 0.5) => {
-  colorA = colorStringToRGBAArray(colorA);
-  colorB = colorStringToRGBAArray(colorB);
-  return mixTwoRGBA(colorA, colorB, range);
-};
-
-exports.mixTwoColors = mixTwoColors;
-
-const hexToRGB = (hex, alpha = 1) => {
-  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
-  return `rgb(${r},${g},${b})`;
-};
-
-exports.hexToRGB = hexToRGB;
-
-const hexToRGBA = (hex, alpha = 1) => {
-  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
-  return `rgba(${r},${g},${b},${alpha})`;
-};
-
-exports.hexToRGBA = hexToRGBA;
-
-const mixTwoRGB = (colorA, colorB, range = 0.5) => {
-  let arr = [];
-
-  for (let i = 0; i < 3; i++) {
-    arr[i] = Math.round(colorA[i] + (colorB[i] - colorA[i]) * range);
-  }
-
-  return `rgb(${arr})`;
-};
-
-exports.mixTwoRGB = mixTwoRGB;
-
-const mixTwoRGBA = (colorA, colorB, range = 0.5) => {
-  let arr = [];
-
-  for (let i = 0; i < 4; i++) {
-    let round = i === 3 ? x => x : Math.round;
-    arr[i] = round(colorA[i] + (colorB[i] - colorA[i]) * range);
-  }
-
-  return `rgba(${arr})`;
-};
-
-exports.mixTwoRGBA = mixTwoRGBA;
-
-const opacify = (color, opacity) => {
-  let arr = colorStringToRGBAArray(color);
-  arr[3] = opacity;
-  return `rgba(${arr})`;
-};
-
-exports.opacify = opacify;
-
-const getFontFormat = url => url.split(/[#?]/)[0].split('.').pop().trim();
-
-exports.getFontFormat = getFontFormat;
-
-const setCustomFont = (name, weight, url) => `@font-face {
-  font-family: '${name}';
-  font-style: normal;
-  font-weight: ${weight};
-  src: url('${url}') format('${getFontFormat(url)}');
-}`;
-
-exports.setCustomFont = setCustomFont;
-
-const getFontFace = Library => {
-  var fonts = '';
-
-  for (var name in Library) {
-    var font = Library[name];
-
-    for (var weight in font) {
-      var url = font[weight];
-      fonts += `\n${setCustomFont(name, weight, url)}`;
-    }
-  }
-
-  return fonts;
-};
-
-exports.getFontFace = getFontFace;
-},{}],"../node_modules/@rackai/scratch/src/methods/set.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _config = require("../config");
-
-var _utils = require("../utils");
-
-var set = (kind, ...props) => {
-  if (kind === 'color') {
-    var Colors = props[0];
-
-    for (let c in Colors) {
-      _config.Color[c] = Colors[c];
-    }
-
-    return Colors;
-  } else if (kind === 'theme') {
-    props.map(value => {
-      var {
-        name
-      } = value;
-      _config.Theme[name] = value;
-    });
-    return _config.Theme;
-  } else if (kind === 'typography') {
-    props.map(value => {
-      var {
-        name
-      } = value;
-      delete value.name;
-      _config.Typography[name] = value;
-    });
-    return (0, _utils.getFontFace)(_config.Typography);
-  }
-};
-
-var _default = set;
-exports.default = _default;
-},{"../config":"../node_modules/@rackai/scratch/src/config/index.js","../utils":"../node_modules/@rackai/scratch/src/utils/index.js"}],"../node_modules/@rackai/scratch/src/methods/index.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "set", {
-  enumerable: true,
-  get: function () {
-    return _set.default;
-  }
-});
-
-var _set = _interopRequireDefault(require("./set"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./set":"../node_modules/@rackai/scratch/src/methods/set.js"}],"../node_modules/@rackai/scratch/src/index.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "set", {
-  enumerable: true,
-  get: function () {
-    return _methods.set;
-  }
-});
-Object.defineProperty(exports, "Sequence", {
-  enumerable: true,
-  get: function () {
-    return _config.Sequence;
-  }
-});
-Object.defineProperty(exports, "Color", {
-  enumerable: true,
-  get: function () {
-    return _config.Color;
-  }
-});
-Object.defineProperty(exports, "Theme", {
-  enumerable: true,
-  get: function () {
-    return _config.Theme;
-  }
-});
-Object.defineProperty(exports, "Box", {
-  enumerable: true,
-  get: function () {
-    return _config.Box;
-  }
-});
-Object.defineProperty(exports, "Size", {
-  enumerable: true,
-  get: function () {
-    return _config.Size;
-  }
-});
-Object.defineProperty(exports, "Typography", {
-  enumerable: true,
-  get: function () {
-    return _config.Typography;
-  }
-});
-Object.defineProperty(exports, "Unit", {
-  enumerable: true,
-  get: function () {
-    return _config.Unit;
-  }
-});
-Object.defineProperty(exports, "colorStringToRGBAArray", {
-  enumerable: true,
-  get: function () {
-    return _utils.colorStringToRGBAArray;
-  }
-});
-Object.defineProperty(exports, "opacify", {
-  enumerable: true,
-  get: function () {
-    return _utils.opacify;
-  }
-});
-Object.defineProperty(exports, "mixTwoColors", {
-  enumerable: true,
-  get: function () {
-    return _utils.mixTwoColors;
-  }
-});
-Object.defineProperty(exports, "hexToRGB", {
-  enumerable: true,
-  get: function () {
-    return _utils.hexToRGB;
-  }
-});
-Object.defineProperty(exports, "hexToRGBA", {
-  enumerable: true,
-  get: function () {
-    return _utils.hexToRGBA;
-  }
-});
-Object.defineProperty(exports, "mixTwoRGB", {
-  enumerable: true,
-  get: function () {
-    return _utils.mixTwoRGB;
-  }
-});
-Object.defineProperty(exports, "mixTwoRGBA", {
-  enumerable: true,
-  get: function () {
-    return _utils.mixTwoRGBA;
-  }
-});
-Object.defineProperty(exports, "getFontFormat", {
-  enumerable: true,
-  get: function () {
-    return _utils.getFontFormat;
-  }
-});
-Object.defineProperty(exports, "setCustomFont", {
-  enumerable: true,
-  get: function () {
-    return _utils.setCustomFont;
-  }
-});
-Object.defineProperty(exports, "getFontFace", {
-  enumerable: true,
-  get: function () {
-    return _utils.getFontFace;
-  }
-});
-
-var _methods = require("./methods");
-
-var _config = require("./config");
-
-var _utils = require("./utils");
-},{"./methods":"../node_modules/@rackai/scratch/src/methods/index.js","./config":"../node_modules/@rackai/scratch/src/config/index.js","./utils":"../node_modules/@rackai/scratch/src/utils/index.js"}],"code/style.js":[function(require,module,exports) {
+},{}],"code/style.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5324,7 +5797,7 @@ exports.code = exports.style = void 0;
 
 var _emotion = require("emotion");
 
-var _scratch = require("@rackai/scratch");
+var _symbols = require("@rackai/symbols");
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  .codeflask.codeflask {\n    background: none;\n    color: white;\n    padding: 0;\n  }\n  .codeflask__textarea.codeflask__textarea {\n    background: none;\n    color: white;\n    caret-color: white;\n  }\n  .codeflask__flatten.codeflask__flatten {\n    padding: 0;\n    color: white;\n    line-height: 22px;\n  }\n  .codeflask.codeflask .token.punctuation {\n    color: #4a4a4a;\n  }\n  .codeflask.codeflask .token.keyword {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.operator {\n    color: #ff5598;\n  }\n  .codeflask.codeflask .token.string {\n    color: #41ad8f;\n  }\n  .codeflask.codeflask .token.comment {\n    color: #9badb7;\n  }\n  .codeflask.codeflask .token.function {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.boolean {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.number {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.selector {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.property {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.tag {\n    color: #8500ff;\n  }\n  .codeflask.codeflask .token.attr-value {\n    color: #8500ff;\n  }\n"]);
@@ -5340,7 +5813,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var style = {
   margin: 6,
-  background: (0, _scratch.opacify)('#D8D8D8', 0.05),
+  background: (0, _symbols.opacify)('#D8D8D8', 0.05),
   padding: '16 20',
   minWidth: 420,
   maxWidth: 540,
@@ -5364,7 +5837,7 @@ var code = {
 };
 exports.code = code;
 (0, _emotion.injectGlobal)(_templateObject());
-},{"emotion":"../node_modules/emotion/dist/emotion.esm.js","@rackai/scratch":"../node_modules/@rackai/scratch/src/index.js"}],"code/utils.js":[function(require,module,exports) {
+},{"emotion":"../node_modules/emotion/dist/emotion.esm.js","@rackai/symbols":"../node_modules/@rackai/symbols/src/index.js"}],"code/utils.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5451,6 +5924,8 @@ exports.default = _default;
 
 var _domql = _interopRequireDefault(require("@rackai/domql"));
 
+var _symbols = _interopRequireDefault(require("@rackai/symbols"));
+
 require("./define");
 
 var _style = require("./canvas/style");
@@ -5462,13 +5937,14 @@ var _code = _interopRequireDefault(require("./code"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.DOM = _domql.default;
+window.Symbols = _symbols.default;
 
 var dom = _domql.default.create({
   style: _style.style,
   preview: _preview.default,
   code: _code.default
 });
-},{"@rackai/domql":"../node_modules/@rackai/domql/src/index.js","./define":"define.js","./canvas/style":"canvas/style.js","./preview":"preview/index.js","./code":"code/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"@rackai/domql":"../node_modules/@rackai/domql/src/index.js","@rackai/symbols":"../node_modules/@rackai/symbols/src/index.js","./define":"define.js","./canvas/style":"canvas/style.js","./preview":"preview/index.js","./code":"code/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -5496,7 +5972,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63991" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49181" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
