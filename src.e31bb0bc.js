@@ -3077,7 +3077,50 @@ var _default = {
   style: _style.default
 };
 exports.default = _default;
-},{"./style":"../node_modules/@rackai/symbols/src/Button/style.js","..":"../node_modules/@rackai/symbols/src/index.js"}],"../node_modules/@rackai/symbols/src/index.js":[function(require,module,exports) {
+},{"./style":"../node_modules/@rackai/symbols/src/Button/style.js","..":"../node_modules/@rackai/symbols/src/index.js"}],"../node_modules/@rackai/symbols/src/Field/style.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _scratch = require("@rackai/scratch");
+
+var primaryFont = Object.keys(_scratch.Typography)[0];
+var defaultFont = primaryFont || '--system-default';
+var _default = {
+  appearance: 'none',
+  outline: 0,
+  cursor: 'pointer',
+  fontFamily: 'inherit'
+};
+exports.default = _default;
+},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js"}],"../node_modules/@rackai/symbols/src/Field/index.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _style = require("./style");
+
+var _Shape = require("../Shape");
+
+var _default = {
+  proto: _Shape.Shape,
+  tag: 'input',
+  style: _style.style,
+  define: {
+    placeholder: param => param
+  },
+  attr: {
+    placeholder: element => element.placeholder
+  }
+};
+exports.default = _default;
+},{"./style":"../node_modules/@rackai/symbols/src/Field/style.js","../Shape":"../node_modules/@rackai/symbols/src/Shape/index.js"}],"../node_modules/@rackai/symbols/src/index.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3221,6 +3264,12 @@ Object.defineProperty(exports, "Button", {
     return _Button.default;
   }
 });
+Object.defineProperty(exports, "Field", {
+  enumerable: true,
+  get: function () {
+    return _Field.default;
+  }
+});
 
 var _scratch = require("@rackai/scratch");
 
@@ -3234,8 +3283,10 @@ var _IconText = _interopRequireDefault(require("./IconText"));
 
 var _Button = _interopRequireDefault(require("./Button"));
 
+var _Field = _interopRequireDefault(require("./Field"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js","./Shape":"../node_modules/@rackai/symbols/src/Shape/index.js","./SVG":"../node_modules/@rackai/symbols/src/SVG/index.js","./Icon":"../node_modules/@rackai/symbols/src/Icon/index.js","./IconText":"../node_modules/@rackai/symbols/src/IconText/index.js","./Button":"../node_modules/@rackai/symbols/src/Button/index.js"}],"../node_modules/@emotion/sheet/dist/sheet.browser.esm.js":[function(require,module,exports) {
+},{"@rackai/scratch":"../node_modules/@rackai/symbols/node_modules/@rackai/scratch/src/index.js","./Shape":"../node_modules/@rackai/symbols/src/Shape/index.js","./SVG":"../node_modules/@rackai/symbols/src/SVG/index.js","./Icon":"../node_modules/@rackai/symbols/src/Icon/index.js","./IconText":"../node_modules/@rackai/symbols/src/IconText/index.js","./Button":"../node_modules/@rackai/symbols/src/Button/index.js","./Field":"../node_modules/@rackai/symbols/src/Field/index.js"}],"../node_modules/@emotion/sheet/dist/sheet.browser.esm.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5827,7 +5878,8 @@ var style = {
     opacity: 0.35,
     fontWeight: 700,
     textTransform: 'uppercase',
-    fontSize: 12
+    fontSize: 12,
+    userSelect: 'none'
   }
 };
 exports.style = style;
@@ -5837,41 +5889,7 @@ var code = {
 };
 exports.code = code;
 (0, _emotion.injectGlobal)(_templateObject());
-},{"emotion":"../node_modules/emotion/dist/emotion.esm.js","@rackai/symbols":"../node_modules/@rackai/symbols/src/index.js"}],"code/utils.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.objectify = exports.prototypefy = void 0;
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var prototypefy = function prototypefy(obj) {
-  for (var param in obj) {
-    var val = obj[param];
-    if (_typeof(val) === 'object') prototypefy(val);else if (param === 'proto' || param === 'childProto') {
-      val = val.split('.').reduce(function (o, i) {
-        return o[i];
-      }, UIkit);
-      obj[param] = val;
-    }
-  }
-
-  return obj;
-};
-
-exports.prototypefy = prototypefy;
-
-var objectify = function objectify(string) {
-  var splitKeys = /(\w+(?=:))|((?<=:\s)[a-zA-Z0-9.\s/'@?":]+(?=\n|,))/g;
-  var toJSONFormat = (string + '\n').replace(splitKeys, '"$&"');
-  var obj = JSON.parse(toJSONFormat);
-  return prototypefy(obj);
-};
-
-exports.objectify = objectify;
-},{}],"code/index.js":[function(require,module,exports) {
+},{"emotion":"../node_modules/emotion/dist/emotion.esm.js","@rackai/symbols":"../node_modules/@rackai/symbols/src/index.js"}],"code/index.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5885,11 +5903,9 @@ var _style = require("./style");
 
 var _preview = _interopRequireDefault(require("../preview"));
 
-var _utils = require("./utils");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var str = "var Button = {\n  tag: 'button',\n  style: {\n    background: 'white',\n    color: 'black',\n    padding: '10 20',\n    fontSize: 16,\n    borderRadius: 10,\n    fontWeight: 500,\n    boxShadow: '0 3px 10px rgba(0, 0, 0, .35)',\n    border: 0\n  }\n}\n\nvar number = {\n  tag: 'h2',\n  text: 0\n}\n\nvar app = {\n  number,\n  increment: {\n    proto: Button,\n    text: 'Increment',\n    on: {\n      click: event => {\n        number.update({ text: number.text + 1 })\n      }\n    }\n  }\n}\n\n// connecting to preview\nwindow.app = app";
+var str = "var Button = {\n  tag: 'button',\n  style: {\n    // emotion\n    background: 'white',\n    color: 'black',\n    padding: '10 20',\n    fontSize: 16,\n    borderRadius: 10,\n    fontWeight: 500,\n    boxShadow: '0 3px 10px rgba(0, 0, 0, .35)',\n    border: 0\n  }\n}\n\nvar number = { text: 0 }\n\nvar app = {\n  h2: number,\n  increment: {\n    proto: Button,\n    text: 'Increment',\n    on: {\n      click: event => {\n        number.update({ text: number.text + 1 })\n      }\n    }\n  }\n}\n\n// connecting to preview\nwindow.app = app";
 var _default = {
   style: _style.style,
   header: 'Code',
@@ -5906,10 +5922,6 @@ var _default = {
         });
         flask.updateCode(str);
         flask.onUpdate(function (code) {
-          // var obj = objectify(code.replace(/'/g, ''))
-          // try {  } catch (error) {
-          //   throw error
-          // }
           eval(code);
 
           _preview.default.center.set(app);
@@ -5919,12 +5931,12 @@ var _default = {
   }
 };
 exports.default = _default;
-},{"codeflask":"../node_modules/codeflask/build/codeflask.module.js","./style":"code/style.js","../preview":"preview/index.js","./utils":"code/utils.js"}],"index.js":[function(require,module,exports) {
+},{"codeflask":"../node_modules/codeflask/build/codeflask.module.js","./style":"code/style.js","../preview":"preview/index.js"}],"index.js":[function(require,module,exports) {
 'use strict';
 
 var _domql = _interopRequireDefault(require("@rackai/domql"));
 
-var _symbols = _interopRequireDefault(require("@rackai/symbols"));
+var Symbols = _interopRequireWildcard(require("@rackai/symbols"));
 
 require("./define");
 
@@ -5934,10 +5946,14 @@ var _preview = _interopRequireDefault(require("./preview"));
 
 var _code = _interopRequireDefault(require("./code"));
 
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.DOM = _domql.default;
-window.Symbols = _symbols.default;
+window.Symbols = Symbols;
 
 var dom = _domql.default.create({
   style: _style.style,
@@ -5972,7 +5988,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49181" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60175" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
