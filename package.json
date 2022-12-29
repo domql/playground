@@ -1,7 +1,6 @@
 {
   "name": "domql-playground",
   "description": "",
-  "private": true,
   "author": "",
   "version": "0.0.1",
   "repository": "",
@@ -12,13 +11,14 @@
     "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
-    "domql": "^1.0.8",
-    "smbls": "^0.1.5",
+    "@symbo.ls/scratch": "^2.7.6",
     "codeflask": "^1.4.1",
-    "emotion": "^10.0.27"
+    "domql": "^1.5.61",
+    "emotion": "^10.0.27",
+    "smbls": "latest"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.3",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "parcel-bundler": "^1.12.3"
   }
 }

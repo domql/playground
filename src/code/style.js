@@ -1,7 +1,7 @@
 'use strict'
 
 import { injectGlobal } from 'emotion'
-import { opacify } from 'smbls'
+import { opacify } from '@symbo.ls/scratch'
 
 export const style = {
   margin: 6,

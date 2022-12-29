@@ -25,7 +25,7 @@ var number = { text: 0 }
 var app = {
   h2: number,
   increment: {
-    proto: Button,
+    extend: Button,
     text: 'Increment',
     on: {
       click: event => {

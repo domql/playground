@@ -1,12 +1,12 @@
 'use strict'
 
 import DOM from 'domql'
-import * as Symbols from 'smbls'
+import * as components from 'smbls'
 import './define'
 
 import App from './app'
 
 window.DOM = DOM
-window.Symbols = Symbols
+window.Symbols = components
 
-DOM.create(App)
+DOM.create(App, null, 'app', { components })
