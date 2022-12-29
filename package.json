@@ -1,5 +1,5 @@
 {
-  "name": "@rackai/playground",
+  "name": "domql-playground",
   "description": "",
   "private": true,
   "author": "",
@@ -12,8 +12,8 @@
     "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
-    "@rackai/domql": "^1.0.8",
-    "@rackai/symbols": "^0.1.5",
+    "domql": "^1.0.8",
+    "smbls": "^0.1.5",
     "codeflask": "^1.4.1",
     "emotion": "^10.0.27"
   },

@@ -1,7 +1,7 @@
 'use strict'
 
-import DOM from '@rackai/domql'
-import * as Symbols from '@rackai/symbols'
+import DOM from 'domql'
+import * as Symbols from 'smbls'
 import './define'
 
 import App from './app'
